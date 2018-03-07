@@ -225,12 +225,17 @@ class KotlinTest {
 
     }
 
-    class GG<in X> {
-        fun well(other: X): String = other.toString()
+
+    open class X {
+        fun x() {}
     }
 
-    fun demo(gg: GG<Number>) {
-        val wp: GG<Float> = gg
+    open class Y : X() {
+        fun y() {}
+    }
+
+    class Z : X() {
+        fun z() {}
     }
 }
 

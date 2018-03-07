@@ -8,42 +8,50 @@ import java.util.List;
  */
 
 public class Test {
-    class A {
+    class A<T> {
+        private T t;
+
+        public A(T t) {
+            this.t = t;
+        }
+
         public void a() {
+        }
+
+        public T getT() {
+            return t;
         }
     }
 
-    class B extends A {
+    class B<T> extends A<T> {
+        public B(T t) {
+            super(t);
+        }
+
         public void b() {
         }
     }
 
-    class C extends B {
+    class C<T> extends B<T> {
+        public C(T t) {
+            super(t);
+        }
+
         public void c() {
         }
     }
 
     @org.junit.Test
     public void test1() {
-        A a = new A();
-        B b = new B();
-        C c = new C();
-
-        LL<A> l1 = new LL<>();
-        LL<B> l2 = new LL<>();
-        l1.read(l2);
+        A<Integer> a = new A<>(20);
+        Integer t = a.getT();
+        System.out.println(t);
+        B<String> b = new B<>("222");
+        C<Integer> c = new C<>(3);
 
     }
 
-    interface L<E> {
-        void read(L<? extends E> l);
-    }
 
-    class LL<E> implements L<E> {
 
-        @Override
-        public void read(L<? extends E> l) {
 
-        }
-    }
 }
