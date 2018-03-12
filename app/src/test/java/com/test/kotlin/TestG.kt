@@ -69,6 +69,7 @@ class TestG {
 
 //        fun go1(i: Int): (index: Int) -> Int = i * i
 
+        //创建不可变list
         var l = List<Number>(5, { i -> i * i })
         val ll = List<Int>(5, { it * it })
         val list1: MutableCollection<Int>? = null
@@ -76,17 +77,40 @@ class TestG {
 
 //        testList(list1 ?: mutableListOf())
 
+        //参数接收map
         val map = mapOf<String, String>("1" to "11", "2" to "22")
         val listFmap = map.map { it.value }
         println(listFmap)
 
+        //使用自定义高阶函数例子
         val r = lychee<String>(mutableListOf("1", "s", "gg", "wp"), { x, y -> x + y == "ss" })
         println(r ?: "nope")
+
+        //文本函数
+        val lychee2 = { x: String, y: Int -> x + y.toString() }
+        //表达式函数
+        val f = fun(x: Int, y: String): String = x.toString() + y
+
+        val result1 = f(-9, "oo")
+        val result2 = lychee2("oo", 888)
+        println("$result1,$result2")
+
+        //函数的表达式函数扩展
+        val xxx = fun Int.(other: Int): Int = this * other
+        println(3.xxx(4))
+
+        val fun1: (Double, Double) -> String
+        fun1 = { d, d2 -> d.toString() + d2.toShort() }
+
+        println(fun1(2.0, 1.0))
+
+
     }
 
     fun testList(mu: MutableCollection<Number>) {
 
     }
+
 
     fun <T> lychee(collection: MutableCollection<out T>, wow: (T, T) -> Boolean): T? {
         var w: T? = null
