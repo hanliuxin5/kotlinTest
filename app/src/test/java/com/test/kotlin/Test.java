@@ -43,15 +43,16 @@ public class Test {
 
     @org.junit.Test
     public void test1() {
-        A<Integer> a = new A<>(20);
-        Integer t = a.getT();
-        System.out.println(t);
-        B<String> b = new B<>("222");
-        C<Integer> c = new C<>(3);
+//        A<Integer> a = new A<>(20);
+//        Integer t = a.getT();
+//        System.out.println(t);
+//        B<String> b = new B<>("222");
+//        C<Integer> c = new C<>(3);
+
+//        System.out.println(Integer.toBinaryString((((byte) 0xff))));
+        System.out.println(Integer.toBinaryString(~2));
 
     }
-
-
 
 
 }

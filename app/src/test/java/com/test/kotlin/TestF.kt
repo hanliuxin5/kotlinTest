@@ -42,6 +42,49 @@ class TestF {
 
     }
 
+    @Test
+    fun test2() {
+        val go = Go()
+        go.f()
+    }
+
+    open class Base() {
+        open fun f() {
+            println("base")
+        }
+    }
+
+    abstract class Main : Base() {
+        abstract override fun f()
+    }
+
+    class Go : Main() {
+        override fun f() {
+            println("go")
+        }
+    }
+
+    open class Gg(val name: String = "") {
+        constructor(name: String, age: Int) : this(name)
+
+        open fun f1() {
+            println("f1")
+        }
+    }
+
+    open class Jj() : Gg() {
+        final override fun f1() {
+            println("f2")
+        }
+    }
+
+
+//    class Bb() : Jj() {
+//        override fun f1() {
+//            println("f3")
+//        }
+//    }
+
     fun funWithName(x: Int, y: Int) = if (x > y) x else y
 
     fun funWithName2(x: Int, y: Int) {
