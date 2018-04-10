@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Kotlin</string>
+    <string name="wow">Would you like to eat?</string>
 </resources>
